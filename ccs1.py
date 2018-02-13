@@ -1,7 +1,8 @@
-# Cryto Challenge Set 1
+# Crypto Challenge Set 1
 """
 1. Convert hex to base64
-
+2. Fixed buffer XOR
+3.
 
 """
 
@@ -24,14 +25,20 @@ def convert_hex_to_base64(hex):
 
 
 def xor_fixed_buffers(buf1, buf2):
+    """
+    Creates XOR buffered string from two hex string buffers
+    :param buf1: hex encoded string
+    :param buf2: hex encoded string
+    :return: xor hex encoded string
+    """
 
     # Convert hex to bytearray
     decoded_hex_buf1 = bytearray.fromhex(buf1)
     decoded_hex_buf2 = bytearray.fromhex(buf2)
 
+    # XOR by byte
     xor_buf = bytearray(len(decoded_hex_buf1))
 
-    # XOR by byte
     for i in range(len(xor_buf)):
         xor_buf[i] = decoded_hex_buf1[i] ^ decoded_hex_buf2[i]
 
